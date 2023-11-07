@@ -12,8 +12,11 @@ function App() {
   return (
     <div className="container">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/" element={<Navigate replace to="/tabletennis"/>} />
+        <Route path="/tabletennis" element={<PhotoList />} />
+        <Route path="/pickleball" element={<PhotoList />} />
+        <Route path="/tennis" element={<PhotoList />} />
+        <Route path="/Search" element={<Search />} />
         <Route path="/nav" element={<Nav />} />
       </Routes>
     </div>
