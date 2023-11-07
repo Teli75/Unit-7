@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Search = () => (
-    <Search>
+
          <form className="search-form">
         <input type="search" name="search" placeholder="Search" required/>
         <button type="submit" className="search-button">
@@ -11,8 +11,6 @@ const Search = () => (
           </svg>
         </button>
       </form> 
-        
-    </Search>
 
 );
 
