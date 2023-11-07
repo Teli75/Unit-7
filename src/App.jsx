@@ -1,12 +1,12 @@
 //import { useState } from 'react'
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import config from "../config";
 
 //App Components
 import Search from "./components/Search";
 import Nav from "./components/Nav";
-import Home from "./components/Home";
+import PhotoList from "./components/PhotoList";
 
 function App() {
   return (
