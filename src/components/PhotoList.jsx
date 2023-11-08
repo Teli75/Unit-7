@@ -1,7 +1,31 @@
-const PhotoList = () => (
-  <div>
-    <p> A PhotoList component that will render all of your Photo components.</p>
-  </div>
-);
+import Photo from './Photo';
+import PropTypes from 'prop-types';
+
+const PhotoList = ({data}) => {
+    
+    // const results = data;
+    // let photos;
+
+    // photos = results.map(photo => {
+    // <Photo 
+    //     key= {photo.id}
+    // />
+    // })
+
+
+
+  return (
+    <div className="photo-container">
+        <h2>Results</h2>
+        <ul>
+            {/* { photos } */}
+        </ul>
+    </div>
+)
+  }
+
+  PhotoList.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired
+  }
 
 export default PhotoList;
