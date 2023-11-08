@@ -23,6 +23,9 @@ function App() {
         console.log(response.data.photos);
         setPhotos(response.data.photos);
         console.log(setPhotos);
+      })
+      .catch((error) => {
+        console.log('Error fetching data', error);
       });
   }, []);
 
@@ -45,7 +48,7 @@ function App() {
 
       <Nav />
       <Routes>
-        {/* <Route path="/" element={<Navigate replace to="/" />} />*/}
+        <Route path="/" element={<Navigate replace to="/tabletennis" />} />
         <Route path="/photoList" element={<PhotoList />} />
         <Route path="/tabletennis" element={<PhotoList />} />
         <Route path="/pickleball" element={<PhotoList />} />
