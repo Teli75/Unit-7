@@ -20,8 +20,8 @@ function App() {
         `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=55bcc77935af2079f2b4ca5aee94a04f&tags=table+tennis&per_page=24&format=json&nojsoncallback=1`
       )
       .then((response) => {
-        console.log(response.data.photos);
-        setPhotos(response.data.photos);
+        console.log(response.data.photos.photo);
+        setPhotos(response.data.photos.photo);
         console.log(setPhotos);
       })
       .catch((error) => {
