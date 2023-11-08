@@ -1,15 +1,16 @@
-import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 const Nav = () => (
-    <Nav>
-         <nav className="main-nav">
-        <ul>
-          <li><a href='#'>TableTennis</a></li>
-          <li><a href='#'>Pickleball</a></li>
-          <li><a href='#'>Tennis</a></li>
-        </ul>
-      </nav> 
-    </Nav>
+  
+  <nav className="main-nav">
+    <ul>
+      <li><NavLink to="/tabletennis" element={<NavLink />} /></li>
+      <li><NavLink to="//pickleball" element={<NavLink />} /></li>
+      <li><NavLink to="/tennis" element={<NavLink />} /></li>
+    </ul>
+  </nav>
+
 
 );
 
