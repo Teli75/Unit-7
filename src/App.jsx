@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import apiKey from "./config";
 import axios from "axios";
@@ -12,6 +12,16 @@ import PhotoList from "./components/PhotoList";
 function App() {
   const [photos, setPhotos] = useState([]);
   const [query, setQuery] = useState("tables");
+//   const [tableTennisPhotos, setTableTennisPhotos] = useState([]);
+//   const [tennisPhotos, setTennisPhotos] = useState([]);
+//   const [pickleBallPhotos, setPickleBallPhotos] = useState([]);
+
+
+//   useEffect( () => {
+//     fetchData(tableTennisPhotos);
+//     fetchData(tennisPhotos);
+//     fetchData(pickleBallPhotos);
+//   })
 
   function fetchData( query ) {
       axios
@@ -28,7 +38,7 @@ function App() {
     }
 
   const handleQueryChange = ( title ) => {
-    setQuery( title )
+    setQuery( title );
     fetchData( query );
   };
 
