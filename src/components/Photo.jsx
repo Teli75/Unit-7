@@ -5,7 +5,7 @@ const Photo = (props) => (
         <ul>
           <li>
             {/* <img src={`https://${photo}.staticflickr.com/4334/37032996241_4c16a9b530.jpg`} alt="" /> */}
-            <img src = {`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}_${size-s}.jpg`}/>
+            <img src = {`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`}/>
 
             <p>This is where my photos will go</p>
           </li>
