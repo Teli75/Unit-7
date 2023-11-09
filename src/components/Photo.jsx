@@ -1,9 +1,10 @@
 const Photo = (props) => (
   <>
     <li>
-      {/* <img src={`https://${photo}.staticflickr.com/4334/37032996241_4c16a9b530.jpg`} alt="" /> */}
+
       <img
-        src={`https://live.staticflickr.com/${props.server}/${props.key}_${props.secret}.jpg`}
+
+        src={`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`}
       />
     </li>
 

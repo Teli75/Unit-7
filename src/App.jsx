@@ -28,10 +28,10 @@ function App() {
       .catch((error) => {
         console.log('Error fetching data', error);
       });
-  }, []);
+  }, [query]);
 
-  const handleQueryChange = () => {
-    setQuery( );
+  const handleQueryChange = ( text ) => {
+    setQuery( text );
   }
   //Whether it's clicked or typed, this function setQuery
   //}
