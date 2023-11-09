@@ -14,7 +14,10 @@ const PhotoList = ({data, title}) => {
     photos = results.map(photo => (
     <Photo 
         key= {photo.id}
-        photo={photo.farm}
+        farm={photo.farm}
+        server={photo.server}
+        secret={photo.secret}
+        owner={photo.owner}
     />
     ));
 
