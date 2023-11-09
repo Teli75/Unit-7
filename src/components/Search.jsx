@@ -12,7 +12,7 @@ const Search = ( { changeQuery } ) => {
 
   return (
     <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
-      <input type="search" name="search" placeholder="Search" required />
+      <input type="search" name="search" placeholder="Search" ref={ searchText } required />
       <button type="submit" className="search-button">
         <svg
           fill="#fff"

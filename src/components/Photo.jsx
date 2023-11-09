@@ -1,9 +1,7 @@
 const Photo = (props) => (
   <>
     <li>
-
       <img
-
         src={`https://live.staticflickr.com/${props.photo.server}/${props.photo.id}_${props.photo.secret}.jpg`}
       />
     </li>

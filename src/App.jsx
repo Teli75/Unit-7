@@ -66,6 +66,9 @@ function App() {
           path="/tennis"
           element={<PhotoList title="Tennis" data={photos} queryState={query} changeQuery={ handleQueryChange } />}
         />
+        <Route 
+        path="/search/:query" 
+        element={<PhotoList data={photos} />} />
       </Routes>
     </div>
   );
