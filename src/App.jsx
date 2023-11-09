@@ -20,9 +20,10 @@ function App() {
         `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=55bcc77935af2079f2b4ca5aee94a04f&tags=table+tennis&per_page=24&format=json&nojsoncallback=1`
       )
       .then((response) => {
-        console.log(response.data.photos.photo);
+        
         setPhotos(response.data.photos.photo);
-        console.log(setPhotos);
+        console.log(photos);
+
       })
       .catch((error) => {
         console.log('Error fetching data', error);
@@ -41,18 +42,17 @@ function App() {
       />
 
       {/** Passes photos state to the PhotoList component */}
-      <PhotoList
+      {/* <PhotoList
         data={photos}
        
-      />
+      /> */}
 
       <Nav />
       <Routes>
         <Route path="/" element={<Navigate replace to="/tabletennis" />} />
-        <Route path="/photoList" element={<PhotoList />} />
-        <Route path="/tabletennis" element={<PhotoList />} />
-        <Route path="/pickleball" element={<PhotoList />} />
-        <Route path="/tennis" element={<PhotoList />} />
+        <Route path="/tabletennis" element={<PhotoList title="Table Tennis" data={ photos } />} />
+        <Route path="/pickleball" element={<PhotoList title="Pickle Ball" data={ photos } />} />
+        <Route path="/tennis" element={<PhotoList title="Tennis" data={ photos } />} />
       </Routes>
     </div>
   );

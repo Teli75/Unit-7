@@ -1,35 +1,35 @@
 import Photo from './Photo';
-import PropTypes from 'prop-types';
 
-const PhotoList = ({data}) => {
 
-    // if (!data) {
-    //     return null;
-    // }
+const PhotoList = ({data, title}) => {
+
+    if (!data) {
+        return null;
+    }
     
-    // const results = data;
-    // let photos;
+    const results = data;
+    let photos;
 
-    // photos = results.map(photo => (
-    // <Photo 
-    //     key= {photo.id}
-    // />
-    // ));
+    //map over array from api to return a Photo component for each object
+    photos = results.map(photo => (
+    <Photo 
+        key= {photo.id}
+        photo={photo.farm}
+    />
+    ));
 
 
 
   return (
     <div className="photo-container">
-        <h2>Results</h2>
+        <h2>Images Of: {title} </h2>
         <ul>
-            {/* { photos } */}
+            { photos }
         </ul>
     </div>
 )
   }
 
-  PhotoList.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
+
 
 export default PhotoList;
