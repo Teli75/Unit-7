@@ -4,7 +4,7 @@ const Photo = (props) => (
 
       <img
 
-        src={`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`}
+        src={`https://live.staticflickr.com/${props.photo.server}/${props.photo.id}_${props.photo.secret}.jpg`}
       />
     </li>
 

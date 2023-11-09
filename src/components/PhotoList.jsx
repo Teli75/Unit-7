@@ -1,11 +1,19 @@
 import Photo from "./Photo";
+import React, { useEffect } from "react";
 
-const PhotoList = (props) => {
-  if (!props.data) {
+const PhotoList = ({title, data, queryState, changeQuery }) => {
+
+    useEffect(()=> {
+    if (queryState !== title){
+        changeQuery(title);
+    }
+    }, [ queryState ])
+
+  if (!data) {
     return null;
   }
 
-  const results = props.data;
+  const results = data;
   let photos;
 
   //map over array from api to return a Photo component for each object
@@ -21,7 +29,7 @@ const PhotoList = (props) => {
 
   return (
     <div className="photo-container">
-      <h2>Images Of: {props.title} </h2>
+      <h2>Images Of: {title} </h2>
       <ul>{photos}</ul>
     </div>
   );

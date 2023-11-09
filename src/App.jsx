@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import apiKey from "./config";
 import axios from "axios";
@@ -13,43 +13,49 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [query, setQuery] = useState("tables");
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}=${query}&per_page=24&format=json&nojsoncallback=1`
-      )
-      .then((response) => {
-        
-        setPhotos(response.data.photos.photo);
-        console.log(photos);
+  function fetchData( query ) {
+      axios
+        .get(
+          `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
+        )
+        .then((response) => {
+          setPhotos(response.data.photos.photo);
+          console.log(photos);
+        })
+        .catch((error) => {
+          console.log("Error fetching data", error);
+        });
+    }
 
-      })
-      .catch((error) => {
-        console.log('Error fetching data', error);
-      });
-  }, [query]);
-
-  const handleQueryChange = ( text ) => {
-    setQuery( text );
-  }
-
+  const handleQueryChange = ( title ) => {
+    setQuery( title )
+    fetchData( query );
+  };
 
   return (
     <div className="container">
+
       <Search
-      // changeQuery={ handleQueryChange }
+        callFetchData = { fetchData }
       />
 
+      <Nav />
 
-      <Nav 
-        useForQuery={handleQueryChange}
-      />
-      
       <Routes>
         <Route path="/" element={<Navigate replace to="/tabletennis" />} />
-        <Route path="/tabletennis" element={<PhotoList title="Table Tennis" data={ photos } />} />
-        <Route path="/pickleball" element={<PhotoList title="Pickle Ball" data={ photos } />} />
-        <Route path="/tennis" element={<PhotoList title="Tennis" data={ photos } />}  />
+
+        <Route
+          path="/tabletennis"
+          element={<PhotoList title="Table Tennis" data={photos} queryState={query} changeQuery={ handleQueryChange }  />}
+        />
+        <Route
+          path="/pickleball"
+          element={<PhotoList title="Pickle Ball" data={photos} queryState={query} changeQuery={ handleQueryChange } />}
+        />
+        <Route
+          path="/tennis"
+          element={<PhotoList title="Tennis" data={photos} queryState={query} changeQuery={ handleQueryChange } />}
+        />
       </Routes>
     </div>
   );
