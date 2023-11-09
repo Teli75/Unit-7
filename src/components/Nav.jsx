@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 
-const Nav = () => (
+const Nav = (props) => (
   
   <nav className="main-nav">
     <ul>

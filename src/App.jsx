@@ -11,13 +11,13 @@ import PhotoList from "./components/PhotoList";
 
 function App() {
   const [photos, setPhotos] = useState([]);
-  //const [query, setQuery] = useState("tables");
+  const [query, setQuery] = useState("tables");
 
   useEffect(() => {
     //Query will change url if a link is clicked or if something is typed into search bar.
     axios
       .get(
-        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=55bcc77935af2079f2b4ca5aee94a04f&tags=table+tennis&per_page=24&format=json&nojsoncallback=1`
+        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=55bcc77935af2079f2b4ca5aee94a04f&tags=${query}&per_page=24&format=json&nojsoncallback=1`
       )
       .then((response) => {
         
@@ -30,8 +30,9 @@ function App() {
       });
   }, []);
 
-  // const handleQueryChange = searchText => {
-  //   setQuery( searchText );
+  const handleQueryChange = () => {
+    setQuery( );
+  }
   //Whether it's clicked or typed, this function setQuery
   //}
 
@@ -41,18 +42,16 @@ function App() {
       // changeQuery={ handleQueryChange }
       />
 
-      {/** Passes photos state to the PhotoList component */}
-      {/* <PhotoList
-        data={photos}
-       
-      /> */}
 
-      <Nav />
+      <Nav 
+        useForQuery={handleQueryChange}
+      />
+      
       <Routes>
         <Route path="/" element={<Navigate replace to="/tabletennis" />} />
         <Route path="/tabletennis" element={<PhotoList title="Table Tennis" data={ photos } />} />
         <Route path="/pickleball" element={<PhotoList title="Pickle Ball" data={ photos } />} />
-        <Route path="/tennis" element={<PhotoList title="Tennis" data={ photos } />} />
+        <Route path="/tennis" element={<PhotoList title="Tennis" data={ photos } />}  />
       </Routes>
     </div>
   );
