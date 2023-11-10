@@ -18,11 +18,11 @@ function App() {
 
 
  useEffect( () => {
-  if (tableTennisPhotos.length < 0)
+  if (tableTennisPhotos.length === 0)
     fetchData("Table Tennis");
-if (tennisPhotos.length < 0)
+if (tennisPhotos.length === 0)
    fetchData("Tennis");
-if (pickleBallPhotos.length < 0)
+if (pickleBallPhotos.length === 0)
     fetchData("Pickle Ball");  
  }, [])
 
@@ -33,17 +33,17 @@ if (pickleBallPhotos.length < 0)
         )
         .then((response) => {
           if (query ===  "Table Tennis" ){
-            setTableTennisPhotos;
+            setTableTennisPhotos(response.data.photos.photo);
           } else {
           setPhotos(response.data.photos.photo);
           }
           if (query ===  "Tennis" ){
-            setTennisPhotos;
+            setTennisPhotos(response.data.photos.photo);
           } else {
           setPhotos(response.data.photos.photo);
           }
           if (query ===  "Pickle Ball" ){
-            setPickleBallPhotos;
+            setPickleBallPhotos(response.data.photos.photo);
           } else {
           setPhotos(response.data.photos.photo);
           }
