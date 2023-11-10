@@ -9,11 +9,12 @@ const Search = ( { changeQuery } ) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userSearch = searchText.current.value;
-
     changeQuery( userSearch);
+    let path = `search${userSearch}`;
+    navigate (`${path}`);
     //resets the input field on submit
     e.currentTarget.reset();
-
+   
    
   };
 

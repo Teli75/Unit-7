@@ -49,6 +49,7 @@ function App() {
       });
   }
 
+  //Sets the query state and calls the function to get data from api
   const handleQueryChange = ( title ) => {
     setQuery( title );
     fetchData(title);
@@ -62,7 +63,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Navigate replace to="/tabletennis" />} />
-        <Route path="/search/" element={<Navigate replace to="/userSearch" />} />
+
         <Route
           path="/tabletennis"
           element={
