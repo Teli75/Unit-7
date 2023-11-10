@@ -6,7 +6,7 @@ const Search = ( { changeQuery } ) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    changeQuery( searchText);
+    changeQuery( searchText );
     e.currentTarget.reset();
   };
 

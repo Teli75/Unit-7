@@ -3,8 +3,6 @@ import Photo from "./Photo";
 
 const PhotoList = ({title, data }) => {
 
-
-
   if (!data) {
     return null;
   }
@@ -14,7 +12,7 @@ const PhotoList = ({title, data }) => {
 
   //map over array from api to return a Photo component for each object
   photos = results.map((photo) => {
-    console.log(photo);
+
     return (
       <Photo
         key={photo.id}

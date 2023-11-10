@@ -43,15 +43,14 @@ function App() {
         } else {
           setPhotos(response.data.photos.photo);
         }
-        console.log(photos);
       })
       .catch((error) => {
         console.log("Error fetching data", error);
       });
   }
 
-  const handleQueryChange = (title) => {
-    setQuery(title);
+  const handleQueryChange = ( searchText ) => {
+    setQuery(searchText);
     fetchData(query);
   };
 
