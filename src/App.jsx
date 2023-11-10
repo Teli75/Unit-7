@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="container">
-      <Search callFetchData={fetchData} />
+      <Search changeQuery={handleQueryChange} />
 
       <Nav />
 
