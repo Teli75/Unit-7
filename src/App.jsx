@@ -12,16 +12,19 @@ import PhotoList from "./components/PhotoList";
 function App() {
   const [photos, setPhotos] = useState([]);
   const [query, setQuery] = useState("tables");
-//   const [tableTennisPhotos, setTableTennisPhotos] = useState([]);
-//   const [tennisPhotos, setTennisPhotos] = useState([]);
-//   const [pickleBallPhotos, setPickleBallPhotos] = useState([]);
+  const [tableTennisPhotos, setTableTennisPhotos] = useState([]);
+  const [tennisPhotos, setTennisPhotos] = useState([]);
+  const [pickleBallPhotos, setPickleBallPhotos] = useState([]);
 
 
-//   useEffect( () => {
-//     fetchData(tableTennisPhotos);
-//     fetchData(tennisPhotos);
-//     fetchData(pickleBallPhotos);
-//   })
+ useEffect( () => {
+  if (tableTennisPhotos.length < 0)
+    fetchData("Table Tennis");
+if (tennisPhotos.length < 0)
+   fetchData("Tennis");
+if (pickleBallPhotos.length < 0)
+    fetchData("Pickle Ball");  
+ }, [])
 
   function fetchData( query ) {
       axios
@@ -29,7 +32,21 @@ function App() {
           `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
         )
         .then((response) => {
+          if (query ===  "Table Tennis" ){
+            setTableTennisPhotos;
+          } else {
           setPhotos(response.data.photos.photo);
+          }
+          if (query ===  "Tennis" ){
+            setTennisPhotos;
+          } else {
+          setPhotos(response.data.photos.photo);
+          }
+          if (query ===  "Pickle Ball" ){
+            setPickleBallPhotos;
+          } else {
+          setPhotos(response.data.photos.photo);
+          }
           console.log(photos);
         })
         .catch((error) => {

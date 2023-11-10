@@ -1,13 +1,9 @@
 import Photo from "./Photo";
-import React, { useEffect } from "react";
 
-const PhotoList = ({title, data, queryState, changeQuery }) => {
 
-    useEffect(()=> {
-    if (queryState !== title){
-        changeQuery(title);
-    }
-    }, [ queryState ])
+const PhotoList = ({title, data }) => {
+
+
 
   if (!data) {
     return null;
