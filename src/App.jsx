@@ -69,7 +69,7 @@ function App() {
           element={
             <PhotoList
               title="Table Tennis"
-              data={photos}
+              data={tableTennisPhotos}
               queryState={query}
               changeQuery={handleQueryChange}
             />
@@ -80,7 +80,7 @@ function App() {
           element={
             <PhotoList
               title="Pickle Ball"
-              data={photos}
+              data={pickleBallPhotos}
               queryState={query}
               changeQuery={handleQueryChange}
             />
@@ -91,7 +91,7 @@ function App() {
           element={
             <PhotoList
               title="Tennis"
-              data={photos}
+              data={tennisPhotos}
               queryState={query}
               changeQuery={handleQueryChange}
             />
