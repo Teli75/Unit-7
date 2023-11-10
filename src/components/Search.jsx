@@ -3,15 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 //Search component uses prop function to change the query state
 const Search = ( { changeQuery } ) => {
-
+  const navigate = useNavigate();
   const searchText = useRef('null');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const userSearch = searchText.current.value;
     changeQuery( userSearch);
-    let path = `search${userSearch}`;
-    navigate (`${path}`);
+    navigate (`search/${userSearch}`);
     //resets the input field on submit
     e.currentTarget.reset();
    
