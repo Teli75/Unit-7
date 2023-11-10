@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //Search component uses prop function to change the query state
 const Search = ( { changeQuery } ) => {
@@ -13,10 +13,8 @@ const Search = ( { changeQuery } ) => {
     changeQuery( userSearch);
     //resets the input field on submit
     e.currentTarget.reset();
-    <Routes>
-      <Route path="/" element={<Navigate replace to="/tabletennis" />} />
-    </Routes>
-    
+
+   
   };
 
   return (

@@ -62,7 +62,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Navigate replace to="/tabletennis" />} />
-
+        <Route path="/search/" element={<Navigate replace to="/userSearch" />} />
         <Route
           path="/tabletennis"
           element={
