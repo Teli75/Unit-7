@@ -51,7 +51,7 @@ function App() {
 
   const handleQueryChange = ( title ) => {
     setQuery( title );
-    fetchData(query);
+    fetchData(title);
   };
 
   return (
