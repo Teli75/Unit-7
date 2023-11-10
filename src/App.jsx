@@ -49,8 +49,8 @@ function App() {
       });
   }
 
-  const handleQueryChange = ( searchText ) => {
-    setQuery(searchText);
+  const handleQueryChange = ( title ) => {
+    setQuery( title );
     fetchData(query);
   };
 

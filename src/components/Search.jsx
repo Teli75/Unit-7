@@ -1,13 +1,22 @@
 import React, { useRef } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
+//Search component uses prop function to change the query state
 const Search = ( { changeQuery } ) => {
 
   const searchText = useRef('null');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    changeQuery( searchText.current.value );
+    const userSearch = searchText.current.value;
+
+    changeQuery( userSearch);
+    //resets the input field on submit
     e.currentTarget.reset();
+    <Routes>
+      <Route path="/" element={<Navigate replace to="/tabletennis" />} />
+    </Routes>
+    
   };
 
   return (
